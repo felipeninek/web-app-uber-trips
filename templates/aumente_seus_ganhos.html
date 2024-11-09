@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aumente seus ganhos!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Início</a></li>
+                <li><a href="{{ url_for('colabore') }}">Colaborar</a></li>
+                <li><a href="{{ url_for('aumente_seus_ganhos') }}">Aumente seus ganhos!</a></li>
+            </ul>
+            <div class="accessibility-controls">
+                <button id="increase-text" title="Aumentar texto">
+                    <i class="fas fa-search-plus"></i>
+                </button>
+                <button id="decrease-text" title="Diminuir texto">
+                    <i class="fas fa-search-minus"></i>
+                </button>
+                <button id="reset-text" title="Resetar texto">
+                    <i class="fas fa-undo-alt"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="colabore">
+        <h1>Aumente seus Ganhos</h1>
+        <p>Use os filtros abaixo para visualizar dados no mapa e identificar áreas de maior potencial para aumentar seus ganhos.</p>
+
+        <form action="{{ url_for('aumente_seus_ganhos') }}" method="get" class="filtros">
+            <label for="hora_inicio">Hora de Início:</label>
+            <input type="time" id="hora_inicio" name="hora_inicio" value="23:00:00">
+
+            <label for="hora_fim">Hora de Fim:</label>
+            <input type="time" id="hora_fim" name="hora_fim" value="23:59:59">
+
+            <label for="dia_semana">Dia da Semana:</label>
+            <select id="dia_semana" name="dia_semana">
+                <option value="">Todos</option>
+                <option value="Segunda-feira">Segunda-feira</option>
+                <option value="Terça-feira">Terça-feira</option>
+                <option value="Quarta-feira">Quarta-feira</option>
+                <option value="Quinta-feira">Quinta-feira</option>
+                <option value="Sexta-feira">Sexta-feira</option>
+                <option value="Sábado">Sábado</option>
+                <option value="Domingo">Domingo</option>
+            </select>
+
+            <label for="semana_mes">Semana do Mês:</label>
+            <select id="semana_mes" name="semana_mes">
+                <option value="">Todos</option>
+                <option value="1º">1º</option>
+                <option value="2º">2º</option>
+                <option value="3º">3º</option>
+                <option value="4º">4º</option>
+                <option value="5º">5º</option>
+            </select>
+
+            <label for="mes_ano">Semana do Mês:</label>
+            <select id="mes_ano" name="mes_ano">
+                <option value="">Todos</option>
+                <option value="janeiro">janeiro</option>
+                <option value="fevereiro">fevereiro</option>
+                <option value="março">março</option>
+                <option value="abril">abril</option>
+                <option value="maio">maio</option>
+                <option value="junho">junho</option>
+                <option value="julho">julho</option>
+                <option value="agosto">agosto</option>
+                <option value="setembro">setembro</option>
+                <option value="outubro">outubro</option>
+                <option value="novembro">novembro</option>
+                <option value="dezembro">dezembro</option>
+            </select>
+
+            <input type="submit" class="black" value="Aplicar Filtros">
+        </form>
+
+        <h2>Mapa Interativo</h2>
+        <div id="mapa-container">
+            <div id="mapa" style="height: 50%; width: 80%; max-height: 500px;">
+                {{ mapa | safe }}
+            </div>
+        </div>     
+
+        <a href="{{ url_for('index') }}" class="black">Voltar para Home</a>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Início</a></li>
+                <li><a href="{{ url_for('colabore') }}">Colaborar</a></li>
+                <li><a href="{{ url_for('aumente_seus_ganhos') }}">Aumente seus ganhos!</a></li>
+            </ul>
+            <div class="accessibility-controls">
+                <button id="increase-text" title="Aumentar texto">
+                    <i class="fas fa-search-plus"></i>
+                </button>
+                <button id="decrease-text" title="Diminuir texto">
+                    <i class="fas fa-search-minus"></i>
+                </button>
+                <button id="reset-text" title="Resetar texto">
+                    <i class="fas fa-undo-alt"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="presentation">
+        <div class="presentation">
+            <h1>Bem-vindo ao Radar Driver</h1>
+            <img src="{{ url_for('static', filename='motorista.jpg') }}" alt="Imagem de Apresentação">
+            <p class="presentation-text">O projeto <strong>Radar Driver</strong> tem como objetivo ajudar os motoristas a melhorar seus ganhos e diminuir custos, proporcionando mais qualidade de vida e trabalho. Trabalhamos em um formato colaborativo, onde os motoristas podem acessar a plataforma e baixar nosso robô para extrair os dados de suas corridas.</p>
+            <p class="presentation-text">Os arquivos gerados pelo nosso robô ficam disponíveis para você analisar e compartilhar conosco! Assim, disponibilizamos um espaço para pesquisas e visualização dos dados fornecidos pelos motoristas. Os dados utilizados nos gráficos são reais e suas informações não são armazenadas, pode ficar tranquilo!</p>
+        </div>
+    </div>
+</body>
+</html>

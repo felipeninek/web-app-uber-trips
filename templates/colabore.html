@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colabore com o Radar Driver</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Início</a></li>
+                <li><a href="{{ url_for('colabore') }}">Colaborar</a></li>
+                <li><a href="{{ url_for('aumente_seus_ganhos') }}">Aumente seus ganhos!</a></li>
+            </ul>
+            <div class="accessibility-controls">
+                <button id="increase-text" title="Aumentar texto">
+                    <i class="fas fa-search-plus"></i>
+                </button>
+                <button id="decrease-text" title="Diminuir texto">
+                    <i class="fas fa-search-minus"></i>
+                </button>
+                <button id="reset-text" title="Resetar texto">
+                    <i class="fas fa-undo-alt"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="colabore">
+        <h1>Colabore com o Radar Driver</h1>
+        <p>Você pode colaborar com o projeto baixando nosso robô e compartilhando os dados obtidos das corridas. Siga as instruções abaixo:</p>
+        
+        <h2>Obter Robô</h2>
+        <a href="{{ url_for('serve_static', filename='main.exe') }}" download>
+            <button class="black">Download robô</button>
+        </a>
+        
+        <h2>Compartilhar dados das corridas:</h2>
+        <form action="{{ url_for('colabore') }}" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".csv">
+            <input type="submit" class="black" value="Compartilhar">
+        </form>
+
+        <a href="{{ url_for('index') }}" class="black">Voltar para Página Inicial</a>
+    </div>
+
+</body>
+</html>
