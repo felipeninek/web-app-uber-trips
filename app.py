@@ -8,7 +8,7 @@ from src import bd
 app = Flask(__name__)
 
 # Configuração do MongoDB
-MONGO_URI = 'mongodb+srv://felipeninek:22082008@clusteraprendizado.r962dp8.mongodb.net/'
+MONGO_URI = os.getenv('MONGO_URI')
 DATABASE_NAME = 'uber'
 COLLECTION_NAME = 'viagens'
 
